@@ -73,7 +73,7 @@
 			children = (
 				BA07733B2A7D41AD00E09F6D /* ChatGPTInterviewApp.swift */,
 				BA0773572A7F378900E09F6D /* Posts API */,
-				BA0773582A7F37CA00E09F6D /* To-Do */,
+				BA0773582A7F37CA00E09F6D /* To-Do List */,
 				BA07733F2A7D41AE00E09F6D /* Assets.xcassets */,
 				BA0773412A7D41AE00E09F6D /* Preview Content */,
 			);
@@ -133,14 +133,14 @@
 			path = "Posts API";
 			sourceTree = "<group>";
 		};
-		BA0773582A7F37CA00E09F6D /* To-Do */ = {
+		BA0773582A7F37CA00E09F6D /* To-Do List */ = {
 			isa = PBXGroup;
 			children = (
 				BA07735B2A7F37EF00E09F6D /* Views */,
 				BA07735A2A7F37E600E09F6D /* View Model */,
 				BA0773592A7F37DF00E09F6D /* Model */,
 			);
-			path = "To-Do";
+			path = "To-Do List";
 			sourceTree = "<group>";
 		};
 		BA0773592A7F37DF00E09F6D /* Model */ = {
