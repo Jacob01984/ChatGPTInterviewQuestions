@@ -13,7 +13,7 @@ class ContentModel: NSObject, ObservableObject {
     
     func getPosts() {
         
-        guard let url = URL(string: Constants.apiUrl) else { return }
+        guard let url = URL(string: Constantss.apiUrl) else { return }
         
             var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
             request.httpMethod = "GET"

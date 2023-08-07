@@ -11,8 +11,8 @@ import SwiftUI
 struct ChatGPTInterviewApp: App {
     var body: some Scene {
         WindowGroup {
-            ToDoRootView()
-                //.environmentObject(ContentModel())
+            WeatherRootView()
+                .environmentObject(WeatherViewModel())
         }
     }
 }

@@ -26,6 +26,9 @@ struct ToDoRootView: View {
                 Section("Completed") {
                     ForEach(taskViewModel.completedTasks, id: \.id) { task in
                         TaskRow(taskViewModel: taskViewModel, task: task)
+                            .onLongPressGesture {
+                                taskViewModel.markTaskAsInProgress(task: task)
+                            }
                     }
                 }
             }
@@ -43,8 +46,8 @@ struct ToDoRootView: View {
         }
         
         .sheet(isPresented: $showSheet) {
-            CreateTask(taskViewModel: taskViewModel, title: $title, completeBy: $completeBy)
-                .presentationDetents([.fraction(0.30)])
+            CreateTask(taskViewModel: taskViewModel, showSheet: $showSheet, title: $title, completeBy: $completeBy)
+                .presentationDetents([.fraction(0.50)])
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Constants {
+struct Constantss {
     
     static var apiUrl = "https://jsonplaceholder.typicode.com/posts"
 }

@@ -11,7 +11,7 @@ struct CreateTask: View {
     
     @ObservedObject var taskViewModel: TaskViewModel
     
-    @State var showSheet = false
+    @Binding var showSheet: Bool
     
     @Binding var title: String
     @Binding var completeBy: Date
@@ -23,7 +23,8 @@ struct CreateTask: View {
                 Text("Title:")
                 TextField("Title", text: $title)
             }
-            DatePicker("Complete by:", selection: $completeBy)
+            DatePicker("Deadline:", selection: $completeBy)
+           
             HStack {
                 Spacer()
                 Button {
@@ -42,6 +43,6 @@ struct CreateTask: View {
 
 struct CreateTask_Previews: PreviewProvider {
     static var previews: some View {
-        CreateTask(taskViewModel: TaskViewModel(), title: .constant("Go to the gym"), completeBy: .constant(Date()))
+        CreateTask(taskViewModel: TaskViewModel(), showSheet: .constant(true), title: .constant("Go to the gym"), completeBy: .constant(Date()))
     }
 }
