@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CoreLocation
+import _MapKit_SwiftUI
 
 struct WeatherRootView: View {
     @EnvironmentObject var viewModel: WeatherViewModel
@@ -16,11 +18,18 @@ struct WeatherRootView: View {
             LinearGradient(colors: [.white, .blue, .blue], startPoint: .topTrailing, endPoint: .bottomLeading)
                 .ignoresSafeArea()
             
-            VStack {
+            ScrollView {
                 HeaderView()
+                    .padding(.top, 20)
                     .padding(.horizontal)
-                CurrentWeatherView(currentWeather: viewModel.currentWeather)
                 
+                Image(systemName: viewModel.currentWeather.conditionImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .padding(.vertical, 35)
+                CurrentWeatherView(currentWeather: viewModel.currentWeather)
+                    .padding(.horizontal)
                 Spacer()
             }
         }

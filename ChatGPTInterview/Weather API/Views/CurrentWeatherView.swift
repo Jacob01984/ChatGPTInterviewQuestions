@@ -14,13 +14,48 @@ struct CurrentWeatherView: View {
         
         HStack {
             VStack(alignment: .leading) {
-                Text(currentWeather.condition?.text ?? "Sunny")
-                Text("\(currentWeather.feelsLikeF ?? 102.3)")
+                HStack {
+                    Spacer()
+                    VStack {
+                        Text("\(currentWeather.tempF?.formatted(withDecimalPlaces: 0) ?? "100")℉")
+                            .font(.largeTitle)
+                            .bold()
+                        Text(currentWeather.condition?.text ?? "Sunny")
+                            .font(.title2)
+                    }
+                    Spacer()
+                }
+                Divider()
+                
+                VStack(alignment: .leading, spacing: 15) {
+                    HStack {
+                        Text("Feels Like: ")
+                            .bold()
+                        Text("\(currentWeather.feelsLikeF?.formatted(withDecimalPlaces: 0) ?? "100")℉")
+                    }
+                    .font(.title3)
+                    
+                    
+                    HStack {
+                        Text("Humidity: ")
+                            .bold()
+                        Text("\(currentWeather.humidity ?? 0)%")
+                    }
+                    .font(.title3)
+                    
+                    HStack {
+                        Text("Rain: ")
+                            .bold()
+                        Text("\(currentWeather.precipIn?.formatted(withDecimalPlaces: 1) ?? "0") In.")
+                    }
+                    .font(.title3)
+                }
             }
+            Spacer()
         }
         .padding(.horizontal)
         .padding(.vertical)
-        .background(.thinMaterial)
+        .background(.regularMaterial)
         .cornerRadius(10)
         .frame(maxWidth: .infinity)
     }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct HeaderView: View {
     @EnvironmentObject var viewModel: WeatherViewModel
@@ -16,9 +17,18 @@ struct HeaderView: View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 5) {
                 
-                Text(viewModel.location.name ?? "San Antonio")
-                    .font(.title)
+                HStack {
+                    Text(viewModel.location.name ?? "San Antonio")
+                        .font(.title)
                     .bold()
+                    Spacer()
+                    Button {
+                        viewModel.getWeather(location: CLLocation(latitude: 123, longitude: 123))
+                    } label: {
+                        Image(systemName: "plus.circle")
+                    }
+
+                }
                 Text(viewModel.location.region ?? "Texas")
                     .bold()
                 Text(viewModel.location.localtime ?? "2023-08-07 9:39")
@@ -28,7 +38,7 @@ struct HeaderView: View {
         }
         .padding(.horizontal)
         .padding(.vertical)
-        .background(.thinMaterial)
+        .background(.regularMaterial)
         .cornerRadius(10)
         .frame(maxWidth: .infinity)
     }

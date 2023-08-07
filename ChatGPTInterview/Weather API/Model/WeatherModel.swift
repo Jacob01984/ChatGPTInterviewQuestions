@@ -40,6 +40,32 @@ struct CurrentWeather: Decodable {
         case precipIn = "precip_in"
         case condition
     }
+    
+    var conditionImage: String {
+        guard let conditionText = condition?.text else {
+            return "questionmark"
+        }
+        switch conditionText.lowercased() {
+        case "sunny":
+            return "sun.max.circle.fill"
+        case "cloudy", "partly cloudy":
+            return "cloud.sun.circle.fill"
+        case "overcast":
+            return "cloud.circle.fill"
+        case "mist", "patchy rain possible", "patchy light drizzle", "light drizzle", "patchy light rain", "light rain":
+            return "cloud.rain.circle.fill"
+        case "patchy snow possible", "patchy sleet possible", "patchy freezing drizzle possible", "freezing drizzle", "heavy freezing drizzle":
+            return "cloud.snow.circle.fill"
+        case "thundery outbreaks possible":
+            return "cloud.bolt.circle.fill"
+        case "blowing snow", "blizzard":
+            return "snowflake.circle.fill"
+        case "fog":
+            return "cloud.fog.circle.fill"
+        default:
+            return "questionmark"
+        }
+    }
 }
 
 struct Condition: Decodable {

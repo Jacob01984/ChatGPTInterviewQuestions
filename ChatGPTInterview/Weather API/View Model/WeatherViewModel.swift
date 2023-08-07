@@ -18,6 +18,7 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var currentWeather = CurrentWeather()
     @Published var forecast = Forecast()
     
+    
     override init() {
         //init method of NSObject
         super.init()
