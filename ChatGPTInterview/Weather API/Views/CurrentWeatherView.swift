@@ -23,8 +23,16 @@ struct CurrentWeatherView: View {
                         Text(currentWeather.condition?.text ?? "Sunny")
                             .font(.title2)
                     }
+                    Divider()
+                    
+                    Image(systemName: currentWeather.conditionImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                        .padding(.horizontal)
                     Spacer()
                 }
+                .padding(30)
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 15) {

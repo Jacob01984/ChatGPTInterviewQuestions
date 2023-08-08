@@ -23,11 +23,6 @@ struct WeatherRootView: View {
                     .padding(.top, 20)
                     .padding(.horizontal)
                 
-                Image(systemName: viewModel.currentWeather.conditionImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .padding(.vertical, 35)
                 CurrentWeatherView(currentWeather: viewModel.currentWeather)
                     .padding(.horizontal)
                 Spacer()
